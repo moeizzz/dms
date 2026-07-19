@@ -27,6 +27,8 @@
                             <th>SKU</th>
                             <th>Name</th>
                             <th>Category</th>
+                            <th>Wholesale Price</th>
+                            <th>Retail Price</th>
                             <th>UOM</th>
                             <th>Actions</th>
                         </tr>
@@ -37,8 +39,11 @@
                             <td class="fw-bold"><?php echo htmlspecialchars($row['sku']); ?></td>
                             <td><?php echo htmlspecialchars($row['name']); ?></td>
                             <td><?php echo htmlspecialchars($row['category_name'] ?? 'N/A'); ?></td>
+                            <td>Rs. <?php echo number_format($row['wholesale_price'] ?? 0, 2); ?></td>
+                            <td>Rs. <?php echo number_format($row['retail_price'] ?? 0, 2); ?></td>
                             <td><?php echo htmlspecialchars($row['uom_name'] ?? 'N/A'); ?></td>
                             <td>
+                                <a href="/dms/index_v2.php/products/edit/<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary">✏️ Edit</a>
                                 <!-- BUG FIX #1: Product Deletion using POST for security -->
                                 <form action="/dms/index_v2.php/products/delete/<?php echo $row['id']; ?>" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this product?');">
                                     <button type="submit" class="btn btn-sm btn-outline-danger">🗑️ Delete</button>

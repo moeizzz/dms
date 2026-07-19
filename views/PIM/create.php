@@ -36,6 +36,14 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Wholesale Price (Rs.)</label>
+                            <input type="number" step="0.01" name="wholesale_price" class="form-control" value="0.00">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Retail Price (Rs.)</label>
+                            <input type="number" step="0.01" name="retail_price" class="form-control" value="0.00">
+                        </div>
                         <div class="col-md-12 mb-3">
                             <label class="form-label fw-semibold">Description</label>
                             <textarea name="description" class="form-control" rows="3"></textarea>

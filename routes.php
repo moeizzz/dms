@@ -20,6 +20,8 @@ $router->post('/users/store', 'App\Controllers\Foundation\UserController', 'stor
 $router->get('/products', 'App\Controllers\PIM\ProductController', 'index');
 $router->get('/products/create', 'App\Controllers\PIM\ProductController', 'create');
 $router->post('/products/store', 'App\Controllers\PIM\ProductController', 'store');
+$router->get('/products/edit/{id}', 'App\Controllers\PIM\ProductController', 'edit');
+$router->post('/products/update/{id}', 'App\Controllers\PIM\ProductController', 'update');
 $router->post('/products/delete/{id}', 'App\Controllers\PIM\ProductController', 'delete');
 
 // Inventory Routes (WMS)
