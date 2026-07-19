@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribution Management System - Blueprint</title>
+    <style>
+        /* Professional Reset and Print Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #e9ecef;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .document-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 60px 70px;
+            border-radius: 8px;
+        }
+        /* Print-specific rules */
+        @media print {
+            body { background: white; padding: 0; }
+            .document-wrapper { box-shadow: none; padding: 40px 50px; border-radius: 0; }
+            .page-break { page-break-after: always; border: none; margin: 0; padding: 0; height: 1px; }
+            h1, h2, h3 { page-break-after: avoid; }
+            table { page-break-inside: avoid; }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 32px;
+            color: #0b2b4a;
+            border-bottom: 4px solid #f39c12;
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #34495e;
+            margin-bottom: 40px;
+            display: block;
+            font-weight: 400;
+        }
+        h2 {
+            font-size: 22px;
+            color: #1a5276;
+            background: #ebf5fb;
+            padding: 12px 20px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            border-left: 6px solid #2980b9;
+            border-radius: 0 4px 4px 0;
+        }
+        h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        p {
+            line-height: 1.7;
+            color: #2d3e4f;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+        ul li {
+            padding: 6px 0 6px 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%232980b9" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>') left center no-repeat;
+            background-size: 18px;
+            margin-bottom: 2px;
+            color: #1e2b38;
+            font-size: 15px;
+        }
+        ul li strong {
+            color: #0b2b4a;
+            font-weight: 700;
+        }
+        .badge {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 0 12px;
+            border-radius: 20px;
+            line-height: 24px;
+            margin-right: 8px;
+        }
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0 20px;
+            font-size: 15px;
+        }
+        .summary-table th {
+            background: #0b2b4a;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        .summary-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e6ed;
+        }
+        .summary-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        .footer-note {
+            margin-top: 40px;
+            border-top: 2px dashed #d5dbdb;
+            padding-top: 25px;
+            text-align: center;
+            color: #5d6d7e;
+            font-size: 14px;
+        }
+        .page-break {
+            border: none;
+            margin: 40px 0;
+            padding: 0;
+            height: 0;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #e5e8ea;
+            margin: 30px 0;
+        }
+        .watermark-note {
+            background: #fef9e7;
+            border: 1px solid #f9e79f;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #7d6608;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="document-wrapper">
+
+    <!-- COVER SECTION -->
+    <div style="text-align: center; padding: 20px 0 30px;">
+        <h1 style="border-bottom: none; font-size: 38px; padding-bottom: 0;">📦 DISTRIBUTION <br>MANAGEMENT SYSTEM</h1>
+        <div style="font-size: 24px; font-weight: 300; color: #2980b9; letter-spacing: 4px; margin: 5px 0 15px;">DMS</div>
+        <div style="background: #f39c12; height: 4px; width: 80px; margin: 15px auto;"></div>
+        <p style="font-size: 20px; color: #2c3e50; font-weight: 500;">Complete Functional Blueprint</p>
+        <p style="color: #5d6d7e; font-size: 16px;">Business Edition (Tech-Stack Free)</p>
+        <div style="margin-top: 40px; color: #7f8c8d; font-size: 14px;">
+            <p>Version 2.0 | Distribution & Supply Chain ERP</p>
+            <p style="margin-top: 30px; border-top: 1px solid #ecf0f1; padding-top: 30px; font-size: 13px;">Confidential - For Business Stakeholders</p>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 1 -->
+    <h2>1. FOUNDATION &amp; HIERARCHY SETUP</h2>
+    <p><span class="badge">Base</span> System ki base. Business rules define ki jaati hain.</p>
+    <ul>
+        <li><strong>Multi-Company &amp; Multi-Branch:</strong> Ek hi software mein multiple distribution companies ya zones manage karna (e.g., North Zone, South Zone).</li>
+        <li><strong>Warehouse Network:</strong> Central Godown, Sub-Warehouses, aur C&amp;F (Carrying &amp; Forwarding) agents ka management.</li>
+        <li><strong>Financial Year &amp; Taxation:</strong> Dynamic GST/VAT slabs, HSN/SAC codes, aur TDS deduction rules.</li>
+        <li><strong>User Roles (RBAC):</strong> Distributor Owner, Warehouse Manager, Sales Officer, Accounts Clerk, Delivery Boy – har ek ke alag rights.</li>
+    </ul>
+
+    <hr>
+
+    <!-- SECTION 2 -->
+    <h2>2. PRODUCT &amp; PRICING CATALOG (PIM)</h2>
+    <p><span class="badge">Core</span> Distribution ka dil. Yahan products define hote hain.</p>
+    <ul>
+        <li><strong>Multi-level Categories:</strong> Example: Beverages → Cold Drinks → 500ml PET.</li>
+        <li><strong>Multiple Units (UoM):</strong> Pcs, Box (12 Pcs), Carton (48 Pcs). System auto-calculate karega conversion.</li>
+        <li><strong>Distributor Pricing Engine:</strong> 
+            <br>▪ <strong>Primary Rate:</strong> Company se Distributor ko jo rate milta hai.
+            <br>▪ <strong>Secondary Rate:</strong> Distributor retailer ko jo rate deta hai.
+            <br>▪ <strong>Scheme Management:</strong> Buy 10 Get 1 Free, Extra Discount on bulk, ya Credit Note schemes.
+        </li>
+        <li><strong>Barcodes:</strong> Product aur Batch level pe barcode generate karna (EAN-13 / QR).</li>
+    </ul>
+
+    <hr>
+
+    <!-- SECTION 3 -->
+    <h2>3. PROCUREMENT &amp; INWARD SUPPLY CHAIN</h2>
+    <p><span class="badge">Inward</span> Company se maal aana – Primary Sales</p>
+    <ul>
+        <li><strong>Purchase Order (PO):</strong> Auto-generate ho jab stock reorder level se neechay chala jaye.</li>
+        <li><strong>GRN (Goods Receipt Note):</strong> Godown pe maal aane par Quality Check (QC). Kuch maal reject ho sakta hai, kuch accepted.</li>
+        <li><strong>Supplier Return (RMA):</strong> Kharab maal wapas bhejna aur Debit Note generate karna.</li>
+        <li><strong>Landing Cost:</strong> Freight, Insurance, aur handling charges ko product cost mein add karna.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 4 -->
+    <h2>4. WAREHOUSE &amp; INVENTORY OPS (WMS)</h2>
+    <p><span class="badge">Warehouse</span> Godown ke andar ka complete management</p>
+    <ul>
+        <li><strong>Bin/Rack Management:</strong> Godown ke andar specific racks define karna (Aisle-1, Rack-3, Shelf-2).</li>
+        <li><strong>Batch &amp; Expiry (FEFO/FIFO):</strong> Pehle Expiry wala maal pehle nikale (Pharma/FMCG ke liye zaroori).</li>
+        <li><strong>Stock Transfers:</strong> Ek warehouse se doosre warehouse maal bhejna (with In-transit tracking).</li>
+        <li><strong>Cycle Count:</strong> Bina godown band kiye physical stock count karna aur system se match karna.</li>
+        <li><strong>Van Stock:</strong> Salesman ki gadi (Van) mein kitna maal rakha hai, uska alag inventory.</li>
+    </ul>
+
+    <hr>
+
+    <!-- SECTION 5 -->
+    <h2>5. DEALER &amp; RETAILER MANAGEMENT (CRM)</h2>
+    <p><span class="badge">CRM</span> B2B customers ka data</p>
+    <ul>
+        <li><strong>Customer 360° View:</strong> Retailer ka complete history – kya khareeda, kitna return kiya, kitna payment baaki hai.</li>
+        <li><strong>Credit Limit Management:</strong> Har retailer ke liye max credit limit set karna. Limit cross ho toh order book na ho.</li>
+        <li><strong>Beat/Route Planning:</strong> Salesman ko daily kis route pe jaana hai, kis retailer ko visit karna hai (Google Maps integration).</li>
+        <li><strong>Complaint Logging:</strong> Retailer ki complaint (late delivery, damaged product) ko track karna aur SLA ke hisaab se resolve karna.</li>
+    </ul>
+
+    <hr>
+
+    <!-- SECTION 6 -->
+    <h2>6. SALES &amp; SECONDARY SALES</h2>
+    <p><span class="badge">Outward</span> Distributor se Retailer tak bechna</p>
+    <ul>
+        <li><strong>Quotation &amp; Order Booking:</strong> Salesman retailer ke yahan jaakar order book kare (Offline mode bhi chalna chahiye).</li>
+        <li><strong>Van Sales (D2R):</strong> Gadi mein hi stock rakhein, retailer ko maal dein aur turant invoice print karein (Handheld device).</li>
+        <li><strong>Sales Invoice:</strong> Tax invoice generate hona, jisme MRP, Discount, aur Net Amount clear ho.</li>
+        <li><strong>Sales Return:</strong> Retailer kharab maal wapas kare toh Credit Note issue karna aur stock mein wapas add karna (as damaged grade).</li>
+        <li><strong>Indent Management:</strong> Retailer khud mobile app ya portal ke through indent (demand) daale.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 7 -->
+    <h2>7. LAST-MILE DELIVERY LOGISTICS</h2>
+    <p><span class="badge">Logistics</span> Gadi se retailer tak pahunchana</p>
+    <ul>
+        <li><strong>Route Optimization:</strong> Sab se chhota aur fuel-efficient route suggest karna.</li>
+        <li><strong>Driver App:</strong> Delivery boy ke phone pe app. GPS tracking, delivery status update.</li>
+        <li><strong>Proof of Delivery (POD):</strong> Retailer ka digital signature, photo, aur OTP lena delivery confirm karne ke liye.</li>
+        <li><strong>Fleet Management:</strong> Vehicles ka maintenance record, diesel expense, aur challan tracking.</li>
+    </ul>
+
+    <hr>
+
+    <!-- SECTION 8 -->
+    <h2>8. ACCOUNTING &amp; FINANCIAL RECONCILIATION</h2>
+    <p><span class="badge">Finance</span> Paise ka hisaab</p>
+    <ul>
+        <li><strong>Customer Ledger:</strong> Har retailer ka individual khata (Debit/Credit).</li>
+        <li><strong>Supplier Ledger:</strong> Har company/supplier ka khata.</li>
+        <li><strong>Bank Reconciliation:</strong> Bank statement upload karke system auto-match karega payments.</li>
+        <li><strong>Expense Management:</strong> Petty cash, Office expenses, aur Staff salaries ka entry.</li>
+        <li><strong>Financial Statements:</strong> Profit &amp; Loss (P&amp;L), Balance Sheet, aur Cash Flow statement generate karna.</li>
+        <li><strong>Primary Sales Settlement:</strong> Company se commission/scheme ka paisa kab aana hai uska tracking.</li>
+    </ul>
+
+    <hr>
+
+    <!-- SECTION 9 -->
+    <h2>9. AUTOMATION &amp; EARLY WARNINGS</h2>
+    <p><span class="badge">Automation</span> Bina manual intervention ke kaam ho</p>
+    <ul>
+        <li><strong>Auto Reorder Alerts:</strong> Stock low ho toh Purchase Order automatically generate ho ya Manager ko alert jaye (SMS/Email).</li>
+        <li><strong>Overdue Payment Reminders:</strong> Jis retailer ka payment 15 din se zyada overdue hai, usko auto reminder.</li>
+        <li><strong>Approval Workflows:</strong> Agar kisi retailer ko extra discount dena hai toh Manager ki approval zaroori ho.</li>
+        <li><strong>Automated Backups:</strong> Har raat system ka automatic backup cloud pe store hona.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 10 -->
+    <h2>10. BUSINESS INTELLIGENCE (BI) &amp; DASHBOARDS</h2>
+    <p><span class="badge">Analytics</span> Decision making ke liye data</p>
+    <ul>
+        <li><strong>Owner Dashboard:</strong> Today's Sales, Pending Payments, Top Selling Products, aur Regional Performance.</li>
+        <li><strong>Warehouse Dashboard:</strong> Current Stock Value, Expiry Alerts, aur Space Utilization.</li>
+        <li><strong>Salesman Dashboard:</strong> Target vs Achievement, Today's collections.</li>
+        <li><strong>Drill-down Reports:</strong> Jaise "North Zone ki sales kyun kam hui" – click karte hi raw data saamne aa jaye.</li>
+    </ul>
+
+    <hr>
+
+    <!-- SECTION 11 -->
+    <h2>11. MOBILE APPS &amp; INTEGRATION</h2>
+    <p><span class="badge">Ecosystem</span> Sab ko unki device pe chahiye</p>
+    <ul>
+        <li><strong>Sales Rep App:</strong> Offline order booking, payment collection, visit tracking, catalog display.</li>
+        <li><strong>Warehouse App:</strong> Barcode scanner se Pick/Pack karna, GRN entry.</li>
+        <li><strong>Retailer App:</strong> Retailer khud apna order place kare, payment history dekhe, scheme check kare.</li>
+        <li><strong>Integrations:</strong> Tally/SAP/QuickBooks se data sync, aur E-commerce platforms (Amazon/Shopify) se order import.</li>
+    </ul>
+
+    <hr>
+
+    <!-- SECTION 12 -->
+    <h2>12. TESTING, TRAINING &amp; GO-LIVE</h2>
+    <p><span class="badge">Launch</span> System launch ka safar</p>
+    <ul>
+        <li><strong>UAT (User Acceptance Testing):</strong> Real data pe system check karna with 5-10 retailers.</li>
+        <li><strong>Data Migration:</strong> Old Excel/manual data ko system mein shift karna.</li>
+        <li><strong>Role-based Training:</strong> Accounts wale ko sirf accounts sikhana, warehouse staff ko sirf WMS.</li>
+        <li><strong>Phased Go-Live:</strong> Pehle 1 branch pe system chalao, phir sare branches pe rollout karo.</li>
+        <li><strong>Support SLA:</strong> Go-Live ke baad 3 months free bug-fixing aur support.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- SUMMARY TABLE -->
+    <h2>📌 Summary Table (Quick Overview)</h2>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Business Domain</th>
+                <th>Core Feature</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Inward</strong></td><td>PO, GRN, Supplier Returns, Landing Cost</td></tr>
+            <tr><td><strong>Outward</strong></td><td>Van Sales, Retailer Indents, POS, Secondary Sales</td></tr>
+            <tr><td><strong>Warehouse</strong></td><td>Batch/Expiry, Bin Management, Transfers, Cycle Count</td></tr>
+            <tr><td><strong>CRM</strong></td><td>Credit Limit, Beat Planning, Complaint Resolution</td></tr>
+            <tr><td><strong>Finance</strong></td><td>Ledger, Bank Rec, P&L, Scheme Settlements</td></tr>
+            <tr><td><strong>Logistics</strong></td><td>Route Optimization, POD, Driver Tracking</td></tr>
+            <tr><td><strong>Analytics</strong></td><td>Real-time KPI, Sales Heatmaps, Stock Ageing</td></tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <div class="footer-note">
+        <p style="font-size: 16px; font-weight: 600; color: #1a5276;">🚀 Ready for Development</p>
+        <p>This blueprint serves as the complete functional guide for your Distribution Management Software.</p>
+        <p style="margin-top: 10px; font-size: 13px;">Document Generated: July 2026 | Version 2.0</p>
+    </div>
+
+</div>
+</body>
+</html>
