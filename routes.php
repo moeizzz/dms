@@ -15,6 +15,7 @@ $router->get('/', 'App\Controllers\Foundation\DashboardController', 'index');
 $router->get('/users', 'App\Controllers\Foundation\UserController', 'index');
 $router->get('/users/create', 'App\Controllers\Foundation\UserController', 'create');
 $router->post('/users/store', 'App\Controllers\Foundation\UserController', 'store');
+$router->post('/users/delete/{id}', 'App\Controllers\Foundation\UserController', 'delete');
 
 // Product Routes (PIM)
 $router->get('/products', 'App\Controllers\PIM\ProductController', 'index');

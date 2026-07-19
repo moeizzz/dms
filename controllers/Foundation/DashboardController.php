@@ -13,7 +13,15 @@ class DashboardController {
         }
 
         $db = Database::getInstance();
+        $role = $_SESSION['role_slug'] ?? '';
 
+        if ($role === 'sales-representative') {
+            // Fetch Sales Rep specific data (placeholders for now)
+            require_once __DIR__ . '/../../views/Foundation/dashboards/sales_representative.php';
+            exit;
+        }
+
+        // Default Admin / Other Roles logic
         // 1. Total Products
         $stmt1 = $db->query("SELECT COUNT(*) as total FROM products WHERE is_active = 1 AND deleted_at IS NULL");
         $totalProducts = $stmt1->fetchColumn() ?: 0;

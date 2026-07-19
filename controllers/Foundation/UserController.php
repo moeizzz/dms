@@ -21,7 +21,7 @@ class UserController {
 
         $db = Database::getInstance();
         $stmt = $db->query("
-            SELECT u.id, u.username, u.full_name, r.name as role_name 
+            SELECT u.id, u.username, u.full_name, r.name as role_name, r.slug as role_slug
             FROM users u
             LEFT JOIN user_roles ur ON u.id = ur.user_id
             LEFT JOIN roles r ON ur.role_id = r.id
@@ -99,5 +99,38 @@ class UserController {
             header("Location: /dms/index_v2.php/users/create");
             exit;
         }
+    }
+
+    public function delete($id) {
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: /dms/index_v2.php/login");
+            exit;
+        }
+
+        $db = Database::getInstance();
+
+        // Admin Deletion Protection
+        $stmtCheck = $db->prepare("
+            SELECT r.slug as role_slug 
+            FROM users u 
+            LEFT JOIN user_roles ur ON u.id = ur.user_id 
+            LEFT JOIN roles r ON ur.role_id = r.id 
+            WHERE u.id = :id
+        ");
+        $stmtCheck->execute([':id' => $id]);
+        $targetRole = $stmtCheck->fetchColumn();
+
+        if ($targetRole === 'admin') {
+            $_SESSION['error'] = "Action Denied: Cannot delete an Administrator.";
+            header("Location: /dms/index_v2.php/users");
+            exit;
+        }
+
+        $stmt = $db->prepare("UPDATE users SET deleted_at = NOW(), is_active = 0 WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+
+        $_SESSION['success'] = "User deleted successfully.";
+        header("Location: /dms/index_v2.php/users");
+        exit;
     }
 }

@@ -31,6 +31,7 @@
                             <th>Username</th>
                             <th>Full Name</th>
                             <th>Assigned Role</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,11 +42,18 @@
                                 <td class="fw-bold"><?php echo htmlspecialchars($user['username']); ?></td>
                                 <td><?php echo htmlspecialchars($user['full_name']); ?></td>
                                 <td><span class="badge bg-secondary"><?php echo htmlspecialchars($user['role_name'] ?? 'No Role'); ?></span></td>
+                                <td>
+                                    <?php if (($user['role_slug'] ?? '') !== 'admin'): ?>
+                                    <form action="/dms/index_v2.php/users/delete/<?php echo $user['id']; ?>" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                        <button type="submit" class="btn btn-sm btn-danger">🗑️ Delete</button>
+                                    </form>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="4" class="text-center py-4 text-muted">No users found.</td>
+                                <td colspan="5" class="text-center py-4 text-muted">No users found.</td>
                             </tr>
                         <?php endif; ?>
                     </tbody>

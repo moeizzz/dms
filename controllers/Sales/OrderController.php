@@ -59,6 +59,18 @@ class OrderController {
             $db = Database::getInstance();
             $db->beginTransaction();
 
+            // Step 0: Strict Inventory Validation
+            $stmtCheckInv = $db->prepare("SELECT quantity_on_hand FROM inventory WHERE product_id = :pid AND warehouse_id = 1");
+            $stmtCheckInv->execute([':pid' => $product_id]);
+            $currentStock = $stmtCheckInv->fetchColumn();
+
+            if ($currentStock === false || $quantity > $currentStock) {
+                $db->rollBack();
+                $_SESSION['error'] = "Error: Insufficient stock for this product.";
+                header("Location: /dms/index_v2.php/orders/create");
+                exit;
+            }
+
             // Step 1 & 2: Dynamic Pricing & Order Metadata
             $orderNo = 'ORD-' . strtoupper(uniqid());
             $now = date('Y-m-d H:i:s');

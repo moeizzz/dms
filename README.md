@@ -282,4 +282,6 @@ PHP sessions are initiated via `session_start()` at the front controller level. 
 > **DMS V2** — Built as a portfolio demonstration of enterprise-grade PHP application architecture, security practices, and modular domain-driven design.
 
 ## Changelog
+- **2026-07-19**: Fixed Sales Rep UI layout, implemented strict inventory validation to prevent negative stock, and added System Admin user deletion.
+- **2026-07-19**: Created the Sales Representative dashboard based on the `dist.html` blueprint template.
 - **2026-07-19**: Added separated wholesale and retail pricing logic to the Product Information Management (PIM) module.
